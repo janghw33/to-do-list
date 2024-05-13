@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 3rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+button {
+  padding: 0.1rem 0.9rem;
+  margin-left: 0.1rem;
+  cursor: pointer;
+}
+
+ul {
+  background-color: rgba(255, 255, 255, 0);
+  margin: 1.5rem auto 1.5rem 8rem;
+}
+
+li {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0.1rem;
+  cursor: pointer;
+}
+
+.todo-container {
+  background-image: url(./img/notebook-background.jpg);
+
+  margin: 1rem auto;
+  /* background-color: #d80b0b; */
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.input-section {
+  display: flex;
+  /* background-color: #fff; */
+  /* background-color: #ff0000; */
+  background-color: rgba(255, 255, 255, 0);
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
