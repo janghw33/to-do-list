@@ -1,6 +1,6 @@
 // Temp button functions
 
-const AddTodo = () => {
+const addTodo = () => {
     var inputText = document.getElementById('todo-input').value; 
     var todoList = document.getElementById('todo-list'); 
 
