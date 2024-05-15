@@ -25,12 +25,14 @@ button {
 }
 
 ul {
-  background-color: rgba(255, 255, 255, 0);
+  /* background-color: rgba(255, 255, 255, 0); */
+  background: transparent;
   margin: 1.5rem auto 1.5rem 8rem;
 }
 
 li {
-  background-color: rgba(255, 255, 255, 0);
+  /* background-color: rgba(255, 255, 255, 0); */
+  background: transparent;
   padding: 0.1rem;
   cursor: pointer;
 }
@@ -44,6 +46,7 @@ li {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 800px;
+  min-height: 600px;
 }
 
 .input-section {
@@ -55,16 +58,19 @@ li {
   justify-content: center;
 }
 
-
 .delete {
   background: transparent;
   color: red;
-  padding: 0.1rem .5rem;
+  padding: 0.1rem 0.5rem;
   position: relative;
   left: 1rem;
 }
 
 .delete:hover {
   color: #fff;
+  background-color: red;
+}
+
+#destroyInternet {
   background-color: red;
 }
