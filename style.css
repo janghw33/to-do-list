@@ -54,3 +54,17 @@ li {
   margin-bottom: 0.5rem;
   justify-content: center;
 }
+
+
+.delete {
+  background: transparent;
+  color: red;
+  padding: 0.1rem .5rem;
+  position: relative;
+  left: 1rem;
+}
+
+.delete:hover {
+  color: #fff;
+  background-color: red;
+}

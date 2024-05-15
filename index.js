@@ -1,5 +1,7 @@
 // Temp button functions
 
+
+
 const addTodo = () => {
     var inputText = document.getElementById('todo-input').value; 
     var todoList = document.getElementById('todo-list'); 
@@ -18,14 +20,42 @@ const addTodo = () => {
         }
     });
 
+    const deleteButton = document.createElement('span');
+    deleteButton.textContent = 'X';
+    deleteButton.className = 'delete';
+
+    deleteButton.addEventListener('click', (e)=> {
+            const selectedItem = e.target.parentElement;
+            list.removeChild(selectedItem);
+        })
+    
     newListItem.appendChild(spanText);
     newListItem.appendChild(checkBox);
     todoList.appendChild(newListItem);
-
+    newListItem.appendChild(deleteButton);
     document.getElementById('todo-input').value = '';
 }
 
-deleteTodo = () => {};
+
+const list = document.getElementById('todo-list');
+const items = document.getElementsByTagName('li');
+for(let i=0; i< items.length; i++) {
+    const deleteButton = document.createElement('span');
+    deleteButton.textContent = 'X';
+    deleteButton.className = 'delete';
+    items[i].appendChild(deleteButton);
+}
+
+let deleteBtn = document.getElementsByClassName('delete');
+for(let i=0; i< deleteBtn.length; i++) {
+    deleteBtn[i].addEventListener('click', (e)=> {
+        const selectedItem = e.target.parentElement;
+        list.removeChild(selectedItem);
+
+    })
+}
+
+
 
 editTodo = () => {};
 
