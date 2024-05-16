@@ -30,8 +30,8 @@ const addTodo = () => {
   });
 
   const deleteButton = document.createElement("span");
-  deleteButton.textContent = "X";
-  deleteButton.className = "delete";
+  // deleteButton.textContent = "X";
+  deleteButton.className = "delete fa-regular fa-circle-xmark";
 
   deleteButton.addEventListener("click", (e) => {
     const selectedItem = e.target.parentElement;
@@ -40,7 +40,8 @@ const addTodo = () => {
   });
 
   const editButton = document.createElement("span");
-  editButton.innerHTML = "Edit";
+  //editButton.innerHTML = "Edit";
+  editButton.className = "fa-solid fa-pen-to-square";
   editButton.classList.add("edit");
 
   newListItem.appendChild(spanText);
@@ -98,7 +99,6 @@ todoList.addEventListener("click", function (e) {
     }
   }
 });
-
 
 function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
