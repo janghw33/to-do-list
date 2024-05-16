@@ -2,16 +2,16 @@
 
 let todos = [];
 
-let newListItem = document.createElement("li");
-let spanText = document.createElement("span");
+var newListItem = document.createElement("li");
+var spanText = document.createElement("span");
 const todoList = document.getElementById("todo-list");
 
 const addTodo = () => {
-  let inputText = document.getElementById("todo-input").value.trim();
+  var inputText = document.getElementById("todo-input").value.trim();
   if (inputText === "") return;
-  let newListItem = document.createElement("li");
+  var newListItem = document.createElement("li");
 
-  let spanText = document.createElement("span");
+  var spanText = document.createElement("span");
   spanText.textContent = inputText;
   spanText.style.background = "transparent";
   const newTodo = { text: inputText, completed: false };
@@ -167,11 +167,15 @@ function renderTodos() {
     });
 
     const editButton = document.createElement("span");
-    editButton.className = "fa-solid fa-pen-to-square";
+    editButton.textContent = "Edit";
+    // editButton.className = "fa-solid fa-pen-to-square";
     editButton.classList.add("edit");
 
     const deleteButton = document.createElement("span");
-    deleteButton.className = "delete fa-regular fa-circle-xmark";
+    deleteButton.textContent = "X";
+    deleteButton.className = "delete";
+
+    // deleteButton.className = "delete fa-regular fa-circle-xmark";
 
     deleteButton.addEventListener("click", () => {
       const index = todos.findIndex((item) => item.text === todo.text);
