@@ -60,14 +60,14 @@ const items = document.getElementsByTagName("li");
 for (let i = 0; i < items.length; i++) {
   const editButton = document.createElement("span");
   editButton.textContent = "Edit";
-  editButton.classList.add("edit");
+  editButton.className = "fa-solid fa-pen-to-square";
   items[i].appendChild(editButton);
 }
 
 for (let i = 0; i < items.length; i++) {
   const deleteButton = document.createElement("span");
   deleteButton.textContent = "X";
-  deleteButton.className = "delete";
+  deleteButton.className = "delete fa-regular fa-circle-xmark";
   items[i].appendChild(deleteButton);
 }
 let deleteBtn = document.getElementsByClassName("delete");
@@ -98,36 +98,7 @@ todoList.addEventListener("click", function (e) {
     }
   }
 });
-// let updValue = target.previousElementSibling.value;
-// target.parentElement.innerHTML = `
-//   <span>${updValue}</span>
-//   <span class="edit">Edit</span>
-//   <span class="delete">X</span>
-//   `;
 
-// updateLocalStorage();
-// renderTodos();
-
-//const target = e.target.classList.contains("edit"),
-//  update = e.target.classList.contains("update");
-//if (target) {
-// let val = e.target.parentElement.firstChild.innerHTML;
-
-//   e.target.parentElement.innerHTML = `
-//      <input type="text" name="todo" class="todo-text" value="${val}">
-//      <span class="update">update</span>
-//      `;
-// }
-// if (update) {
-//   let updValue = e.target.previousElementSibling.value;
-//   e.target.parentElement.innerHTML = `
-//   <li class="list-item">
-//   <span>${updValue}</span>
-//   <span class='edit'>edit</span>
-//   <span class='delete'>X</span>
-//   </li>`;
-//}
-//});
 
 function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
