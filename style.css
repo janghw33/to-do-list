@@ -85,6 +85,20 @@ li {
   background-color: yellow;
 }
 
+.update {
+  background: transparent;
+  background-color: rgb(118, 175, 118);
+  padding: 0.1rem 0.5rem;
+  position: relative;
+  left: 1rem;
+  
+}
+
+.update:hover {
+  color: #000;
+  background-color: rgb(70, 122, 70);
+}
+
 #destroyInternet {
   background-color: red;
 }
