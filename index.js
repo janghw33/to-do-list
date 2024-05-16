@@ -40,10 +40,10 @@ const addTodo = () => {
     updateLocalStorage();
   });
 
-    const editButton = document.createElement("span");
-    editButton.innerHTML = "Edit";
-    editButton.classList.add("edit");
-    
+  const editButton = document.createElement("span");
+  editButton.innerHTML = "Edit";
+  editButton.classList.add("edit");
+
   newListItem.appendChild(spanText);
   newListItem.appendChild(editButton);
   newListItem.appendChild(deleteButton);
@@ -58,20 +58,19 @@ const addTodo = () => {
 const list = document.getElementById("todo-list");
 const items = document.getElementsByTagName("li");
 
-for(let i=0; i<items.length; i++ ){
-  const editButton = document.createElement('span');
-  editButton.textContent = 'Edit';
-  editButton.classList.add('edit');
+for (let i = 0; i < items.length; i++) {
+  const editButton = document.createElement("span");
+  editButton.textContent = "Edit";
+  editButton.classList.add("edit");
   items[i].appendChild(editButton);
 }
-
 
 for (let i = 0; i < items.length; i++) {
   const deleteButton = document.createElement("span");
   deleteButton.textContent = "X";
   deleteButton.className = "delete";
   items[i].appendChild(deleteButton);
-} 
+}
 let deleteBtn = document.getElementsByClassName("delete");
 for (let i = 0; i < deleteBtn.length; i++) {
   deleteBtn[i].addEventListener("click", (e) => {
@@ -80,32 +79,56 @@ for (let i = 0; i < deleteBtn.length; i++) {
   });
 }
 
+todoList.addEventListener("click", function (e) {
+  const target = e.target;
+  if (target.classList.contains("edit")) {
+    let val = target.previousElementSibling.textContent;
+    target.parentElement.innerHTML = `
+      <input type="text" class="todo-text" value="${val}">
+      <span class="update">Update</span>
+      `;
+  } else if (target.classList.contains("update")) {
+    const updatedText = target.previousElementSibling.value;
+    const listItem = target.parentElement;
+    const index = Array.from(listItem.parentElement.children).indexOf(listItem);
 
-
-
-todoList.addEventListener("click", function(e) {
-  const target = e.target.classList.contains("edit"),
-    update = e.target.classList.contains("update");
-  if (target) {
-    let val = e.target.parentElement.firstChild.innerHTML;
-    
-    e.target.parentElement.innerHTML = `
-       <input type="text" name="todo" class="todo-text" value="${val}">
-       <span class="update">update</span>
-       `;
-  }
-  if (update) {
-    let updValue = e.target.previousElementSibling.value;
-    e.target.parentElement.innerHTML = `
-    <li class="list-item">
-    <span>${updValue}</span>
-    <span class='edit'>edit</span>
-    <span class='delete'>X</span>
-    </li>`;
+    if (index !== -1) {
+      todos[index].text = updatedText;
+      updateLocalStorage();
+      renderTodos();
+    }
   }
 });
+// let updValue = target.previousElementSibling.value;
+// target.parentElement.innerHTML = `
+//   <span>${updValue}</span>
+//   <span class="edit">Edit</span>
+//   <span class="delete">X</span>
+//   `;
 
+// updateLocalStorage();
+// renderTodos();
 
+//const target = e.target.classList.contains("edit"),
+//  update = e.target.classList.contains("update");
+//if (target) {
+// let val = e.target.parentElement.firstChild.innerHTML;
+
+//   e.target.parentElement.innerHTML = `
+//      <input type="text" name="todo" class="todo-text" value="${val}">
+//      <span class="update">update</span>
+//      `;
+// }
+// if (update) {
+//   let updValue = e.target.previousElementSibling.value;
+//   e.target.parentElement.innerHTML = `
+//   <li class="list-item">
+//   <span>${updValue}</span>
+//   <span class='edit'>edit</span>
+//   <span class='delete'>X</span>
+//   </li>`;
+//}
+//});
 
 function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
@@ -143,6 +166,11 @@ function renderTodos() {
       }
       updateLocalStorage();
     });
+
+    const editButton = document.createElement("span");
+    editButton.textContent = "Edit";
+    editButton.classList.add("edit");
+
     const deleteButton = document.createElement("span");
     deleteButton.textContent = "X";
     deleteButton.className = "delete";
@@ -157,6 +185,7 @@ function renderTodos() {
     });
 
     newListItem.appendChild(spanText);
+    newListItem.appendChild(editButton);
     newListItem.appendChild(deleteButton);
     todoList.appendChild(newListItem);
   });
