@@ -57,6 +57,15 @@ const addTodo = () => {
 
 const list = document.getElementById("todo-list");
 const items = document.getElementsByTagName("li");
+
+for(let i=0; i<items.length; i++ ){
+  const editButton = document.createElement('span');
+  editButton.textContent = 'Edit';
+  editButton.classList.add('edit');
+  items[i].appendChild(editButton);
+}
+
+
 for (let i = 0; i < items.length; i++) {
   const deleteButton = document.createElement("span");
   deleteButton.textContent = "X";
@@ -71,12 +80,7 @@ for (let i = 0; i < deleteBtn.length; i++) {
   });
 }
 
-for(let i=0; i<items.length; i++ ){
-  const editButton = document.createElement('span');
-  editButton.textContent = 'Edit';
-  editButton.classList.add('edit');
-  items[i].appendChild(editButton);
-}
+
 
 
 todoList.addEventListener("click", function(e) {
