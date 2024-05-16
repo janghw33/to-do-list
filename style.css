@@ -70,6 +70,19 @@ li {
   color: #fff;
   background-color: red;
 }
+.edit {
+  background: transparent;
+  color: red;
+  padding: 0.1rem 0.5rem;
+  position: relative;
+  left: 1rem;
+  border: 1px solid black;
+}
+
+.edit:hover {
+  color: #fff;
+  background-color: red;
+}
 
 #destroyInternet {
   background-color: red;

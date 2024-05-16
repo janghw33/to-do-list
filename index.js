@@ -40,13 +40,20 @@ const addTodo = () => {
     updateLocalStorage();
   });
 
+    const editButton = document.createElement("span");
+    editButton.innerHTML = "Edit";
+    editButton.classList.add("edit");
+    
   newListItem.appendChild(spanText);
+  newListItem.appendChild(editButton);
   newListItem.appendChild(deleteButton);
   todoList.appendChild(newListItem);
 
   document.getElementById("todo-input").value = "";
   updateLocalStorage();
 };
+
+//end of add
 
 const list = document.getElementById("todo-list");
 const items = document.getElementsByTagName("li");
@@ -55,8 +62,7 @@ for (let i = 0; i < items.length; i++) {
   deleteButton.textContent = "X";
   deleteButton.className = "delete";
   items[i].appendChild(deleteButton);
-}
-
+} 
 let deleteBtn = document.getElementsByClassName("delete");
 for (let i = 0; i < deleteBtn.length; i++) {
   deleteBtn[i].addEventListener("click", (e) => {
@@ -65,7 +71,37 @@ for (let i = 0; i < deleteBtn.length; i++) {
   });
 }
 
-editTodo = () => {};
+for(let i=0; i<items.length; i++ ){
+  const editButton = document.createElement('span');
+  editButton.textContent = 'Edit';
+  editButton.classList.add('edit');
+  items[i].appendChild(editButton);
+}
+
+
+todoList.addEventListener("click", function(e) {
+  const target = e.target.classList.contains("edit"),
+    update = e.target.classList.contains("update");
+  if (target) {
+    let val = e.target.parentElement.firstChild.innerHTML;
+    
+    e.target.parentElement.innerHTML = `
+       <input type="text" name="todo" class="todo-text" value="${val}">
+       <span class="update">update</span>
+       `;
+  }
+  if (update) {
+    let updValue = e.target.previousElementSibling.value;
+    e.target.parentElement.innerHTML = `
+    <li class="list-item">
+    <span>${updValue}</span>
+    <span class='edit'>edit</span>
+    <span class='delete'>X</span>
+    </li>`;
+  }
+});
+
+
 
 function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
