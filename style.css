@@ -87,7 +87,7 @@ li {
 
 .update {
   background: transparent;
-  background-color: rgb(118, 175, 118);
+  color: rgb(118, 175, 118);
   padding: 0.1rem 0.5rem;
   position: relative;
   left: 1rem;
@@ -95,7 +95,7 @@ li {
 }
 
 .update:hover {
-  color: #000;
+  color: #fff;
   background-color: rgb(70, 122, 70);
 }
 
