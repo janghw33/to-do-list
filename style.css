@@ -97,5 +97,6 @@ li {
 }
 
 #destroyInternet {
-  background-color: red;
+  background-color: rgb(216, 122, 122);
+  font-weight: 800;
 }
