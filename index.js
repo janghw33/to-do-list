@@ -176,7 +176,20 @@ function changeLocation() {
 }
 
 function cleanup() {
+  console.log("a");
   todos = todos.filter((todo) => !todo.completed);
   updateLocalStorage();
   renderTodos();
 }
+
+
+const clearAllTodos = () => {
+  
+  const todoList = document.getElementById("todo-list");
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.firstChild);
+  }
+
+  todos = [];
+  updateLocalStorage();
+};
